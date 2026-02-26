@@ -1,44 +1,50 @@
-/**
- * ============================================================
- * MAIN CLASS - UseCasePalindromeCheckerApp
- * ============================================================
- *
- * Use Case 1: Application Entry & Welcome Message
- *
- * Description:
- * This class represents the entry point of the
- * Palindrome Checker Management System.
- *
- * At this stage, the application:
- * - Starts execution from the main() method
- * - Displays a welcome message
- * - Shows application version
- *
- * No palindrome logic is implemented yet.
- *
- * The goal is to establish a clear startup flow.
- *
- * @author Developer
- * @version 1.0
- */
+import java.util.Scanner;
 
 public class PalindroneCheckerApp {
 
     /**
      * Application entry point.
      *
-     * This is the first method executed by the JVM
-     * when the program starts.
-     *
      * @param args Command-line arguments
      */
     public static void main(String[] args) {
 
+        Scanner scanner = new Scanner(System.in);
+
         System.out.println("==========================================");
         System.out.println(" Welcome to Palindrome Checker System ");
-        System.out.println(" Version: 1.0 ");
         System.out.println("==========================================");
 
-        System.out.println("Application started successfully.");
+        System.out.print("Enter a word or sentence: ");
+        String input = scanner.nextLine();
+
+        boolean result = isPalindrome(input);
+
+        if (result) {
+            System.out.println("✅ The given input is a PALINDROME.");
+        } else {
+            System.out.println("❌ The given input is NOT a palindrome.");
+        }
+
+        scanner.close();
+    }
+
+    public static boolean isPalindrome(String text) {
+
+        // Remove spaces and convert to lowercase
+        String cleaned = text.replaceAll("\\s+", "").toLowerCase();
+
+        int left = 0;
+        int right = cleaned.length() - 1;
+
+        while (left < right) {
+            if (cleaned.charAt(left) != cleaned.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+
+        return true;
     }
 }
