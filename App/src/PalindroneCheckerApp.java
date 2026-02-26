@@ -2,17 +2,17 @@ public class PalindroneCheckerApp {
 
     public static void main(String[] args) {
 
-        String word = "madam";
+        String input = "madam";
         String reversed = "";
 
-        for (int i = word.length() - 1; i >= 0; i--) {
-            reversed = reversed + word.charAt(i);
+        for (int i = input.length() - 1; i >= 0; i--) {
+            reversed = reversed + input.charAt(i);
         }
 
-        if (word.equals(reversed)) {
-            System.out.println("The word \"" + word + "\" is a PALINDROME.");
+        if (input.equals(reversed)) {
+            System.out.println("The string \"" + input + "\" is a PALINDROME.");
         } else {
-            System.out.println("The word \"" + word + "\" is NOT a palindrome.");
+            System.out.println("The string \"" + input + "\" is NOT a palindrome.");
         }
     }
 }
